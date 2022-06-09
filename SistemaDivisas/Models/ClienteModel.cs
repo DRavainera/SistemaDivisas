@@ -1,5 +1,6 @@
 ﻿namespace SistemaDivisas.Models
 {
+    //Enatidad tabla cliente
     public class ClienteModel
     {
         public ClienteModel() { }

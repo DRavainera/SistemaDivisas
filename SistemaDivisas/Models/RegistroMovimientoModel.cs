@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 namespace SistemaDivisas.Models
 {
+    //Entidad tabla registroMovimiento
     public class RegistroMovimientoModel
     {
         public RegistroMovimientoModel() { }

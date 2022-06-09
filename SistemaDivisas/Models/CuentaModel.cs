@@ -1,5 +1,6 @@
 ﻿namespace SistemaDivisas.Models
 {
+    //Interfeca madre para herencia
     public interface CuentaModel
     {
         public int Id { get; set; }

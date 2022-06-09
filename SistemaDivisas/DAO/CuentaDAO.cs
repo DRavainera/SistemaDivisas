@@ -7,6 +7,7 @@ namespace SistemaDivisas.DAO
 {
     public class CuentaDAO
     {
+        //Trae todas las cuentas en peso del cliente
         public List<CuentaPesoModel> ListarCuentasPeso(ClienteModel cliente) 
         {
             List<CuentaPesoModel> cuentasPeso = new List<CuentaPesoModel>();
@@ -43,7 +44,7 @@ namespace SistemaDivisas.DAO
             }
             return cuentasPeso;
         }
-
+        //Trae todas las cuentas en dolar del cliente
         public List<CuentaDolarModel> ListarCuentasDolar(ClienteModel cliente)
         {
             List<CuentaDolarModel> cuentasDolar = new List<CuentaDolarModel>();
@@ -80,7 +81,7 @@ namespace SistemaDivisas.DAO
             }
             return cuentasDolar;
         }
-
+        //Trae todas las cuentas en bitcoin del cliente
         public List<CuentaCriptoModel> ListarCuentasCripto(ClienteModel cliente)
         {
             List<CuentaCriptoModel> cuentasCripto = new List<CuentaCriptoModel>();
@@ -115,7 +116,7 @@ namespace SistemaDivisas.DAO
             }
             return cuentasCripto;
         }
-
+        //Trae una cuenta en peso del cliente
         public CuentaPesoModel TraerCuentaPeso(long cuentaCBU)
         {
             CuentaPesoModel cuentaPeso = new CuentaPesoModel();
@@ -148,7 +149,7 @@ namespace SistemaDivisas.DAO
             }
             return cuentaPeso;
         }
-
+        //Trae una cuenta en dolar del cliente
         public CuentaDolarModel TraerCuentaDolar(long cuentaCBU)
         {
             CuentaDolarModel cuentaDolar = new CuentaDolarModel();
@@ -181,7 +182,7 @@ namespace SistemaDivisas.DAO
             }
             return cuentaDolar;
         }
-
+        //Trae una cuenta en bitcoin del cliente
         public CuentaCriptoModel TraerCuentaCripto(string UUID)
         {
             CuentaCriptoModel cuentaCripto = new CuentaCriptoModel();
@@ -212,7 +213,7 @@ namespace SistemaDivisas.DAO
             }
             return cuentaCripto;
         }
-
+        //Crea una cuenta en peso del cliente
         public bool CrearCuentaPeso(CuentaPesoModel cuentaPeso)
         {
             bool respuesta;
@@ -251,7 +252,7 @@ namespace SistemaDivisas.DAO
 
                 return respuesta;
         }
-
+        //Crea una cuenta en dolar del cliente
         public bool CrearCuentaDolar(CuentaDolarModel cuentaDolar)
         {
             bool respuesta;
@@ -290,7 +291,7 @@ namespace SistemaDivisas.DAO
 
             return respuesta;
         }
-
+        //Crea una cuenta en bitcoin del cliente
         public bool CrearCuentaCripto(CuentaCriptoModel cuentaCripto)
         {
             bool respuesta;
@@ -325,7 +326,7 @@ namespace SistemaDivisas.DAO
 
             return respuesta;
         }
-
+        //Cambia el valor del saldo en la cuenta en peso
         private void CambiarSaldoPeso(int cuentaId, double saldo)
         {
             try
@@ -353,7 +354,7 @@ namespace SistemaDivisas.DAO
                 string error = e.Message;
             }
         }
-
+        //Cambia el valor del saldo en la cuenta en dolar
         private void CambiarSaldoDolar(int cuentaId, double saldo)
         {
             try
@@ -381,7 +382,7 @@ namespace SistemaDivisas.DAO
                 string error = e.Message;
             }
         }
-
+        //Cambia el valor del saldo en la cuenta en bitcoin
         private void CambiarSaldoCripto(int cuentaId, double saldo)
         {
             try
@@ -409,7 +410,7 @@ namespace SistemaDivisas.DAO
                 string error = e.Message;
             }
         }
-
+        //Borra una cuenta en peso del cliente
         public bool BorrarCuentaPeso(int id)
         {
             bool respuesta;
@@ -442,7 +443,7 @@ namespace SistemaDivisas.DAO
 
             return respuesta;
         }
-
+        //Borra una cuenta en dolar del cliente
         public bool BorrarCuentaDolar(int id)
         {
             bool respuesta;
@@ -475,7 +476,7 @@ namespace SistemaDivisas.DAO
 
             return respuesta;
         }
-
+        //Borra una cuenta en bitcoin del cliente
         public bool BorrarCuentaCripto(int id)
         {
             bool respuesta;
@@ -508,7 +509,7 @@ namespace SistemaDivisas.DAO
 
             return respuesta;
         }
-
+        //Hace una transferencia de una cuenta peso a otra del mismo tipo de moneda
         public bool TransferirPeso(CuentaPesoModel cuentaPesoOrigen, CuentaPesoModel cuentaPesoDestino, double importe)
         {
             bool respuesta;
@@ -545,7 +546,7 @@ namespace SistemaDivisas.DAO
                 return false;
             }
         }
-
+        //Hace una transferencia de una cuenta dolar a otra del mismo tipo de moneda
         public bool TransferirDolar(CuentaDolarModel cuentaDolarOrigen, CuentaDolarModel cuentaDolarDestino, double importe)
         {
             bool respuesta;
@@ -582,7 +583,7 @@ namespace SistemaDivisas.DAO
                 return false;
             }
         }
-
+        //Hace una transferencia de una cuenta bitcoin a otra del mismo tipo de moneda
         public bool TransferirCripto(CuentaCriptoModel cuentaCriptoOrigen, CuentaCriptoModel cuentaCriptoDestino, double importe)
         {
             bool respuesta;
@@ -619,7 +620,7 @@ namespace SistemaDivisas.DAO
                 return false;
             }
         }
-
+        //Hace una transferencia de una cuenta peso a una cuenta dolar
         public bool TransferirPesoADolar(CuentaPesoModel cuentaPeso, CuentaDolarModel cuentaDolar, double importe)
         {
             bool respuesta;
@@ -656,7 +657,7 @@ namespace SistemaDivisas.DAO
                 return false;
             }
         }
-
+        //Hace una transferencia de una cuenta peso a una cuenta bitcoin
         public bool TransferirPesoACripto(CuentaPesoModel cuentaPeso, CuentaCriptoModel cuentaCripto, double importe)
         {
             bool respuesta;
@@ -693,7 +694,7 @@ namespace SistemaDivisas.DAO
                 return false;
             }
         }
-
+        //Hace una transferencia de una cuenta dolar a una cuenta bitcoin
         public bool TransferirDolarACripto(CuentaDolarModel cuentaDolar, CuentaCriptoModel cuentaCripto, double importe)
         {
             bool respuesta;
@@ -730,7 +731,7 @@ namespace SistemaDivisas.DAO
                 return false;
             }
         }
-
+        //Hace una transferencia de una cuenta dolar a una cuenta peso
         public bool TransferirDolarAPeso(CuentaDolarModel cuentaDolar, CuentaPesoModel cuentaPeso, double importe)
         {
             bool respuesta;
@@ -767,7 +768,7 @@ namespace SistemaDivisas.DAO
                 return false;
             }
         }
-
+        //Hace una transferencia de una cuenta bitcoin a una cuenta dolar
         public bool TransferirCriptoADolar(CuentaCriptoModel cuentaCripto, CuentaDolarModel cuentaDolar, double importe)
         {
             bool respuesta;
@@ -804,7 +805,7 @@ namespace SistemaDivisas.DAO
                 return false;
             }
         }
-
+        //Hace una transferencia de una cuenta bitcoin a una cuenta peso
         public bool TransferirCriptoAPeso(CuentaCriptoModel cuentaCripto, CuentaPesoModel cuentaPeso, double importe)
         {
             bool respuesta;
@@ -841,7 +842,7 @@ namespace SistemaDivisas.DAO
                 return false;
             }
         }
-
+        //Actualiza el saldo de una cuenta peso con "agregar" para depositar y "quitar" para extraer
         public bool ActualizarSaldoPeso(CuentaPesoModel cuentaPeso, double importe, string operacion)
         {
             bool respuesta;
@@ -890,7 +891,7 @@ namespace SistemaDivisas.DAO
 
             return respuesta;
         }
-
+        //Actualiza el saldo de una cuenta dolar con "agregar" para depositar y "quitar" para extraer
         public bool ActualizarSaldoDolar(CuentaDolarModel cuentaDolar, double importe, string operacion)
         {
             bool respuesta;
@@ -939,7 +940,7 @@ namespace SistemaDivisas.DAO
 
             return respuesta;
         }
-
+        //Actualiza el saldo de una cuenta bitcoin con "agregar" para depositar y "quitar" para extraer
         public bool ActualizarSaldoCripto(CuentaCriptoModel cuentaCripto, double importe, string operacion)
         {
             bool respuesta;
@@ -988,7 +989,7 @@ namespace SistemaDivisas.DAO
 
             return respuesta;
         }
-
+        //Hace una conversion de los valores de las distintas monedas
         private double ConversionMoneda(double saldo, string tipoOrigen, string tipoDestino)
         {
             double valorPesoDolar = 120.00;
@@ -1038,13 +1039,13 @@ namespace SistemaDivisas.DAO
             }
             return -1;
         }
-
+        //Hace que los valores de saldo de las cuentas peso y dolar tengan 2 decimales para representar los centavos
         private double Truncate(double numero, int decimales)
         {
             double auxNumero = Math.Pow(10, decimales);
             return Math.Truncate(numero * auxNumero) / auxNumero;
         }
-
+        //Crea una UUID para la creacion de una cuenta bitcoin
         private string UUID()
         {
             Random random = new Random();

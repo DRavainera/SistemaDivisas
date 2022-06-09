@@ -19,17 +19,17 @@ namespace SistemaDivisas.Controllers
         {
             _logger = logger;
         }
-
+        //Pagina principal
         public IActionResult Index()
         {
             return View();
         }
-
+        //Pagina de login
         public IActionResult Login()
         {
             return View();
         }
-
+        //Accion de pagina de login
         [HttpPost]  
         public IActionResult LoginAction(ClienteModel cliente)
         {
@@ -51,12 +51,12 @@ namespace SistemaDivisas.Controllers
                 }
             }
         }
-
+        //Pagina de registro de cliente
         public IActionResult Registro()
         {
             return View();
         }
-
+        //AAcion de pagina de registro de clietne
         [HttpPost]
         public IActionResult RegistroAction(ClienteModel cliente)
         {
@@ -78,19 +78,19 @@ namespace SistemaDivisas.Controllers
                 }
             }
         }
-
+        //Pagina de menu principal del cliente
         public IActionResult Perfil(ClienteModel cliente)
         {
             return View(cliente);
         }
-
+        //Pagina de confirmacion de logout de cliente
         public IActionResult Logout(int id)
         {
             ClienteModel cliente = clienteDAO.TraerCliente(id);
 
             return View(cliente);
         }
-
+        //Accion de pagina de logout
         public IActionResult LogoutAction(ClienteModel cliente)
         {
             bool respuesta = clienteDAO.LogoutCliente(cliente);
@@ -104,7 +104,7 @@ namespace SistemaDivisas.Controllers
                 return View("Logout", cliente.Id);
             }
         }
-
+        //Pagina con las cuentas en peso con acciones y operaciones
         public IActionResult CuentasPeso(int Id)
         {
             ClienteModel cliente = clienteDAO.TraerCliente(Id);
@@ -120,7 +120,7 @@ namespace SistemaDivisas.Controllers
 
             return View(cuentasPeso);
         }
-
+        //Pagina con las cuentas en dolar con acciones y operaciones
         public IActionResult CuentasDolar(int Id)
         {
             ClienteModel cliente = clienteDAO.TraerCliente(Id);
@@ -136,7 +136,7 @@ namespace SistemaDivisas.Controllers
 
             return View(cuentasDolar);
         }
-
+        //Pagina con las cuentas en bitcoin con acciones y operaciones
         public IActionResult CuentasCripto(int Id)
         {
             ClienteModel cliente = clienteDAO.TraerCliente(Id);
@@ -152,7 +152,7 @@ namespace SistemaDivisas.Controllers
 
             return View(cuentasCripto);
         }
-
+        //Pagina con los movimientos de una cuenta en peso del cliente
         public IActionResult MovimientosPeso(long CBU)
         {
             CuentaPesoModel cuentaPeso = cuentaDAO.TraerCuentaPeso(CBU);
@@ -163,7 +163,7 @@ namespace SistemaDivisas.Controllers
 
             return View(registros);
         }
-
+        //Pagina con los movimientos de una cuenta en dolar del cliente
         public IActionResult MovimientosDolar(long CBU)
         {
             CuentaDolarModel cuentaDolar = cuentaDAO.TraerCuentaDolar(CBU);
@@ -174,7 +174,7 @@ namespace SistemaDivisas.Controllers
 
             return View(registros);
         }
-
+        //Pagina con los movimientos de una cuenta en bitcoin del cliente
         public IActionResult MovimientosCripto(string UUID)
         {
             CuentaCriptoModel cuentaCripto = cuentaDAO.TraerCuentaCripto(UUID);
@@ -185,7 +185,7 @@ namespace SistemaDivisas.Controllers
 
             return View(registros);
         }
-
+        //Pagina de creacion de una cuenta peso
         public IActionResult CrearCuentaPeso(int Id)
         {
             ViewBag.ClienteId = Id;
@@ -196,7 +196,7 @@ namespace SistemaDivisas.Controllers
 
             return View(cuentaPeso);
         }
-
+        //Accion de pagina de creacion de cuenta peso
         [HttpPost]
         public IActionResult CrearCuentaPesoAction(CuentaPesoModel cuentaPeso)
         {
@@ -222,7 +222,7 @@ namespace SistemaDivisas.Controllers
                 }
             }
         }
-
+        //Pagina de creacion de una cuenta dolar
         public IActionResult CrearCuentaDolar(int Id)
         {
             ViewBag.ClienteId = Id;
@@ -233,7 +233,7 @@ namespace SistemaDivisas.Controllers
 
             return View(cuentaDolar);
         }
-
+        //Accion de pagina de creacion de cuenta dolar
         [HttpPost]
         public IActionResult CrearCuentaDolarAction(CuentaDolarModel cuentaDolar)
         {
@@ -259,7 +259,7 @@ namespace SistemaDivisas.Controllers
                 }
             }
         }
-
+        //Pagina de creacion de una cuenta bitcoin
         public IActionResult CrearCuentaCripto(int Id)
         {
             ViewBag.ClienteId = Id;
@@ -270,7 +270,7 @@ namespace SistemaDivisas.Controllers
 
             return View(cuentaCripto);
         }
-
+        //Accion de pagina de creacion de cuenta bitcoin
         [HttpPost]
         public IActionResult CrearCuentaCriptoAction(CuentaCriptoModel cuentaCripto)
         {
@@ -296,14 +296,14 @@ namespace SistemaDivisas.Controllers
                 }
             }
         }
-
+        //Pagina para borrar una cuenta peso
         public IActionResult BorrarCuentaPeso(long CBU)
         {
             CuentaPesoModel cuentaPeso = cuentaDAO.TraerCuentaPeso(CBU);
 
             return View(cuentaPeso);
         }
-
+        //Accion de pagina para borrar una cuenta peso
         [HttpPost]
         public IActionResult BorrarCuentaPesoAction(CuentaPesoModel cuentaPeso)
         {
@@ -323,14 +323,14 @@ namespace SistemaDivisas.Controllers
             }
 
         }
-
+        //Pagina para borrar una cuenta dolar
         public IActionResult BorrarCuentaDolar(long CBU)
         {
             CuentaDolarModel cuentaDolar = cuentaDAO.TraerCuentaDolar(CBU);
 
             return View(cuentaDolar);
         }
-
+        //Accion de pagina para borrar una cuenta dolar
         [HttpPost]
         public IActionResult BorrarCuentaDolarAction(CuentaDolarModel cuentaDolar)
         {
@@ -350,14 +350,14 @@ namespace SistemaDivisas.Controllers
             }
 
         }
-
+        //Pagina para borrar una cuenta bitcoin
         public IActionResult BorrarCuentaCripto(string UUID)
         {
             CuentaCriptoModel cuentaCripto = cuentaDAO.TraerCuentaCripto(UUID);
 
             return View(cuentaCripto);
         }
-
+        //Accion de pagina para borrar una cuenta bitcoin
         [HttpPost]
         public IActionResult BorrarCuentaCriptoAction(CuentaCriptoModel cuentaCripto)
         {
@@ -377,7 +377,7 @@ namespace SistemaDivisas.Controllers
             }
 
         }
-
+        //Pagina de trasferencia de dinero de una cuenta peso a otra
         public IActionResult TransferirPesoApeso(int id)
         {
             ClienteModel cliente = clienteDAO.TraerCliente(id);
@@ -388,7 +388,7 @@ namespace SistemaDivisas.Controllers
 
             return View(cuentasPeso);
         }
-
+        //Accion de pagina de trasferencia de dinero de una cuenta peso a otra
         [HttpPost]
         public IActionResult TransferirPesoAPesoAction( long cuentaOrigen, long cuentaDestino, double importe)
         {
@@ -425,7 +425,7 @@ namespace SistemaDivisas.Controllers
             }
 
         }
-
+        //Pagina de trasferencia de dinero de una cuenta peso a una cuenta dolar
         public IActionResult TransferirPesoADolar(int id)
         {
             ClienteModel cliente = clienteDAO.TraerCliente(id);
@@ -440,7 +440,7 @@ namespace SistemaDivisas.Controllers
 
             return View(cuentasPeso);
         }
-
+        //Accion de pagina de trasferencia de dinero de una cuenta peso a una cuenta dolar
         [HttpPost]
         public IActionResult TransferirPesoADolarAction(long cuentaOrigen, long cuentaDestino, double importe)
         {
@@ -477,7 +477,7 @@ namespace SistemaDivisas.Controllers
             }
 
         }
-
+        //Pagina de trasferencia de dinero de una cuenta peso a una cuenta bitcoin
         public IActionResult TransferirPesoACripto(int id)
         {
             ClienteModel cliente = clienteDAO.TraerCliente(id);
@@ -492,7 +492,7 @@ namespace SistemaDivisas.Controllers
 
             return View(cuentasPeso);
         }
-
+        //Accion de pagina de trasferencia de dinero de una cuenta peso a una cuenta bitcoin
         [HttpPost]
         public IActionResult TransferirPesoACriptoAction(long cuentaOrigen, string cuentaDestino, double importe)
         {
@@ -529,7 +529,7 @@ namespace SistemaDivisas.Controllers
             }
 
         }
-
+        //Pagina de trasferencia de dinero de una cuenta dolar a otra
         public IActionResult TransferirDolarADolar(int id)
         {
             ClienteModel cliente = clienteDAO.TraerCliente(id);
@@ -540,7 +540,7 @@ namespace SistemaDivisas.Controllers
 
             return View(cuentasDolar);
         }
-
+        //Accion de pagina de trasferencia de dinero de una cuenta dolar a otra
         [HttpPost]
         public IActionResult TransferirDolarADolarAction(long cuentaOrigen, long cuentaDestino, double importe)
         {
@@ -577,7 +577,7 @@ namespace SistemaDivisas.Controllers
             }
 
         }
-
+        //Pagina de trasferencia de dinero de una cuenta dolar a una cuenta bitcoin
         public IActionResult TransferirDolarACripto(int id)
         {
             ClienteModel cliente = clienteDAO.TraerCliente(id);
@@ -592,7 +592,7 @@ namespace SistemaDivisas.Controllers
 
             return View(cuentasDolar);
         }
-
+        //Accion de pagina de trasferencia de dinero de una cuenta dolar a una cuenta bitcoin
         [HttpPost]
         public IActionResult TransferirDolarACriptoAction(long cuentaOrigen, string cuentaDestino, double importe)
         {
@@ -629,7 +629,7 @@ namespace SistemaDivisas.Controllers
             }
 
         }
-
+        //Pagina de trasferencia de dinero de una cuenta dolar a una cuenta peso
         public IActionResult TransferirDolarAPeso(int id)
         {
             ClienteModel cliente = clienteDAO.TraerCliente(id);
@@ -644,7 +644,7 @@ namespace SistemaDivisas.Controllers
 
             return View(cuentasDolar);
         }
-
+        //Accion de pagina de trasferencia de dinero de una cuenta dolar una cuenta peso
         [HttpPost]
         public IActionResult TransferirDolarAPesoAction(long cuentaOrigen, long cuentaDestino, double importe)
         {
@@ -681,7 +681,7 @@ namespace SistemaDivisas.Controllers
             }
 
         }
-
+        //Pagina de trasferencia de dinero de una cuenta bitcoin a otra
         public IActionResult TransferirCriptoACripto(int id)
         {
             ClienteModel cliente = clienteDAO.TraerCliente(id);
@@ -692,7 +692,7 @@ namespace SistemaDivisas.Controllers
 
             return View(cuentasCripto);
         }
-
+        //Accion de pagina de trasferencia de dinero de una cuenta bitcoin a otra
         [HttpPost]
         public IActionResult TransferirCriptoACriptoAction(string cuentaOrigen, string cuentaDestino, double importe)
         {
@@ -728,7 +728,7 @@ namespace SistemaDivisas.Controllers
                 }
             }
         }
-
+        //Pagina de trasferencia de dinero de una cuenta bitcoin a una cuenta dolar
         public IActionResult TransferirCriptoADolar(int id)
         {
             ClienteModel cliente = clienteDAO.TraerCliente(id);
@@ -743,7 +743,7 @@ namespace SistemaDivisas.Controllers
 
             return View(cuentasCripto);
         }
-
+        //Accion de pagina de trasferencia de dinero de una cuenta bitcoin a una cuenta dolar
         [HttpPost]
         public IActionResult TransferirCriptoADolarAction(string cuentaOrigen, long cuentaDestino, double importe)
         {
@@ -779,7 +779,7 @@ namespace SistemaDivisas.Controllers
                 }
             }
         }
-
+        //Pagina de trasferencia de dinero de una cuenta bitcoin a una cuenta peso
         public IActionResult TransferirCriptoAPeso(int id)
         {
             ClienteModel cliente = clienteDAO.TraerCliente(id);
@@ -794,7 +794,7 @@ namespace SistemaDivisas.Controllers
 
             return View(cuentasCripto);
         }
-
+        //Accion de pagina de trasferencia de dinero de una cuenta bitcoin a una cuenta peso
         [HttpPost]
         public IActionResult TransferirCriptoAPesoAction(string cuentaOrigen, long cuentaDestino, double importe)
         {
@@ -830,14 +830,14 @@ namespace SistemaDivisas.Controllers
                 }
             }
         }
-
+        //Pagina de deposito de una cuenta peso
         public IActionResult DepositarPeso(long CBU)
         {
             CuentaPesoModel cuentaPeso = cuentaDAO.TraerCuentaPeso(CBU);
 
             return View(cuentaPeso);
         }
-
+        //Accion de pagina de deposito de una cuenta peso
         [HttpPost]
         public IActionResult DepositarPesoAction(long CBU, double importe)
         {
@@ -869,14 +869,14 @@ namespace SistemaDivisas.Controllers
                 }
             }
         }
-
+        //Pagina de deposito de una cuenta dolar
         public IActionResult DepositarDolar(long CBU)
         {
             CuentaDolarModel cuentaDolar = cuentaDAO.TraerCuentaDolar(CBU);
 
             return View(cuentaDolar);
         }
-
+        //Accion de pagina de deposito de una cuenta dolar
         [HttpPost]
         public IActionResult DepositarDolarAction(long CBU, double importe)
         {
@@ -908,14 +908,14 @@ namespace SistemaDivisas.Controllers
                 }
             }
         }
-
+        //Pagina de extraccion de una cuenta peso
         public IActionResult ExtraerPeso(long CBU)
         {
             CuentaPesoModel cuentaPeso = cuentaDAO.TraerCuentaPeso(CBU);
 
             return View(cuentaPeso);
         }
-
+        //Accion de pagina de extraccion de una cuenta peso
         [HttpPost]
         public IActionResult ExtraerPesoAction(long CBU, double importe)
         {
@@ -947,14 +947,14 @@ namespace SistemaDivisas.Controllers
                 }
             }
         }
-
+        //Pagina de extraccion de una cuenta dolar
         public IActionResult ExtraerDolar(long CBU)
         {
             CuentaDolarModel cuentaDolar = cuentaDAO.TraerCuentaDolar(CBU);
 
             return View(cuentaDolar);
         }
-
+        //Accion de pagina de extraccion de una cuenta dolar
         [HttpPost]
         public IActionResult ExtraerDolarAction(long CBU, double importe)
         {
@@ -986,7 +986,7 @@ namespace SistemaDivisas.Controllers
                 }
             }
         }
-
+        //Pagina de privacy
         public IActionResult Privacy()
         {
             return View();

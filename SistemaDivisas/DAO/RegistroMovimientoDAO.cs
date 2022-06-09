@@ -7,6 +7,7 @@ namespace SistemaDivisas.DAO
 {
     public class RegistroMovimientoDAO
     {
+        //Trae todo los registros de movimientos de la cuenta
         public List<RegistroMovimientoModel> ListarRegistros(string numeroCuenta)
         {
             List<RegistroMovimientoModel> registros = new List<RegistroMovimientoModel>();
@@ -42,7 +43,7 @@ namespace SistemaDivisas.DAO
 
             return registros;
         }
-
+        //Crea un registro de movimiento de una operacion de una cuenta
         public bool CrearRegistroMovimiento(string numeroCuenta, string registro)
         {
             bool respuesta;

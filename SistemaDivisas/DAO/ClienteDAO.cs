@@ -7,6 +7,7 @@ namespace SistemaDivisas.DAO
 {
     public class ClienteDAO
     {
+        //Realiza un login de cliente
         public ClienteModel LoginCliente(string usuario, string contrasenia)
         {
             ClienteModel cliente = new ClienteModel();
@@ -47,7 +48,7 @@ namespace SistemaDivisas.DAO
                 return cliente;
             }
         }
-
+        //Trae la infomacion de un cliente
         public ClienteModel TraerCliente(int id)
         {
             ClienteModel cliente = new ClienteModel();
@@ -86,7 +87,7 @@ namespace SistemaDivisas.DAO
                 return cliente;
             }
         }
-
+        //Registra un nuevo cliente
         public bool RegistrarCliente(ClienteModel cliente)
         {
             bool respuesta;
@@ -130,7 +131,7 @@ namespace SistemaDivisas.DAO
 
             return respuesta;
         }
-
+        //Actualiza la informacion del cliente
         public bool ActualizarCliente(ClienteModel cliente)
         {
             bool respuesta;
@@ -174,7 +175,7 @@ namespace SistemaDivisas.DAO
 
             return respuesta;
         }
-
+        //Borra un cliente
         public bool BorrarCliente(ClienteModel cliente)
         {
             bool respuesta;
@@ -208,7 +209,7 @@ namespace SistemaDivisas.DAO
 
             return respuesta;
         }
-
+        //Cambia el estado si un cliente esta logueado o no
         private bool CambiarEstadoLogin(ClienteModel cliente, bool estadoLogin)
         {
             bool respuesta;
@@ -241,7 +242,7 @@ namespace SistemaDivisas.DAO
                 return !estadoLogin;
             }
         }
-
+        //Realiza un logout de cliente
         public bool LogoutCliente(ClienteModel cliente)
         {
             bool respuesta;

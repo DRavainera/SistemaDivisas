@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 namespace SistemaDivisas.Models
 {
+    //Entidad tabla cuentaDolar
     public class CuentaDolarModel : CuentaModel
     {
         public CuentaDolarModel() { }

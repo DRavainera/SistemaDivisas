@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 namespace SistemaDivisas.Models
 {
+    //Entidad tabla cuentaPeso
     public class CuentaPesoModel : CuentaModel
     {
         public CuentaPesoModel() { }

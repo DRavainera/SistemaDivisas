@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 namespace SistemaDivisas.Models
 {
+    //Entidad tabla cuentaCripto
     public class CuentaCriptoModel : CuentaModel
     {
         public CuentaCriptoModel() { }
