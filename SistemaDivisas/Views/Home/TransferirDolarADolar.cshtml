@@ -1,0 +1,50 @@
+﻿@model List<CuentaDolarModel>
+@{
+    ViewData["Title"] = "TransferirDolarADolar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card text-center">
+    <div class="card-header">
+        <h5 class="card-header">Transferencia en dolares</h5>
+    </div>
+    <div class="card-body">
+        <form asp-action="TransferirDolarADolarAction" asp-controller="Home" method="post">
+
+            <div class="mb-3 input-group">
+                <label class="form-label input-group-text">Seleccione cuenta origen:</label>
+                <select asp-items="@ViewBag.cuentaOrigen" name="cuentaOrigen" class="form-control" required>
+
+                    @foreach (var l in Model)
+                    {
+                        <option value="@l.CBU">@l.NumeroCuenta</option>
+                    }
+                </select>
+                <span asp-validation-for="@ViewBag" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3 input-group">
+                <label class="form-label input-group-text">Seleccione cuenta Destino:</label>
+                <select asp-items="@ViewBag.cuentaDestino" name="cuentaDestino" class="form-control" required>
+
+                    @foreach (var l in Model)
+                    {
+                        <option value="@l.CBU">@l.NumeroCuenta</option>
+                    }
+                </select>
+                <span asp-validation-for="@ViewBag" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3 input-group">
+                <label class="form-label input-group-text">Ingrese el importe:</label>
+                <input asp-for="@ViewBag" type="number" name="importe" class="form-control" required/>
+                <span asp-validation-for="@ViewBag" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Enviar</button>
+
+            <a asp-action="CuentasDolar" asp-controller="Home" class="btn btn-secondary">Volver</a>
+        </form>
+    </div>
+</div>
+

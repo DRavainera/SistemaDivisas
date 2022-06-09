@@ -1,0 +1,28 @@
+﻿@model CuentaDolarModel
+@{
+    ViewData["Title"] = "DepositarDolar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card text-center">
+    <div class="card-header">
+        <h5 class="card-header">Deposito en dolares</h5>
+    </div>
+    <div class="card-body">
+        <form asp-action="DepositarDolarAction" asp-controller="Home" method="post">
+
+            <input asp-for="CBU" name="CBU" type="hidden" class="form-control" />
+
+            <div class="mb-3 input-group">
+                <label class="form-label input-group-text">Ingrese el importe:</label>
+                <input asp-for="@ViewBag" type="number" name="importe" class="form-control" required/>
+                <span asp-validation-for="@ViewBag" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Enviar</button>
+
+            <a asp-action="CuentasDolar" asp-controller="Home" class="btn btn-secondary">Volver</a>
+        </form>
+    </div>
+</div>
+

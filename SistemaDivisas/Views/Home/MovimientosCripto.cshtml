@@ -1,0 +1,34 @@
+﻿@model List<RegistroMovimientoModel>
+@{
+    ViewData["Title"] = "MovimientosCripto";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card text-center" >
+    <div class="card-header">
+        <h5>Movimientos de cuentas en Bitcoin</h5>
+    </div>
+    <div class="card-body">
+        <a asp-action="CuentasCripto" asp-controller="Home" class="btn btn-secondary" asp-route-id="@ViewBag.CuentaCripto.Id">Volver</a>
+        <br /><br /><br />
+        <table class="table d-lg-table table-responsive table-hover" align="center">
+            <thead>
+                <tr>
+                    <th>Numero de cuenta</th>
+                    <th>Fecha</th>
+                    <th>Movimientos</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var item in Model)
+                {
+                    <tr>
+                        <td>@item.NumeroCuenta</td>
+                        <td>@item.Fecha</td>
+                        <td>@item.Movimiento</td>
+                    </tr>   
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

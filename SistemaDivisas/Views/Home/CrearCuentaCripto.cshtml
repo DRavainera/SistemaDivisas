@@ -1,0 +1,28 @@
+﻿@model CuentaCriptoModel
+@{
+    ViewData["Title"] = "CrearCuentaCripto";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card text-center">
+    <div class="card-header">
+        <h5 class="card-header">Registro de una nueva cuenta en pesos</h5>
+    </div>
+    <div class="card-body">
+        <form asp-action="CrearCuentaCriptoAction" asp-controller="Home" method="post">
+
+            <input asp-for="ClienteId" name="clienteId" type="hidden" value="@ViewBag.clienteId"  class="form-control">  
+
+            <input asp-for="UUID" name="UUID" type="hidden" value="0" class="form-control">
+
+            <div class="alert alert-primary" role="alert">
+                ¿Desea crear la cuenta en Bitcoins?
+            </div>
+
+            <button type="submit" class="btn btn-primary">Crear</button>
+
+            <a asp-action="CuentasCripto" asp-controller="Home" class="btn btn-secondary">Volver</a>
+        </form>
+    </div>
+</div>
+

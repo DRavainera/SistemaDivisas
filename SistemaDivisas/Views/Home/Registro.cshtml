@@ -1,0 +1,83 @@
+﻿@model ClienteModel
+@{
+    ViewData["Title"] = "Registro";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="card text-center">
+    <div class="card-header">
+        <h5 class="card-header">Registro de nuevo cliente</h5>
+    </div>
+    <div class="card-body">
+        <form asp-action="RegistroAction" asp-controller="Home" method="post">
+
+            <div class="mb-3 input-group">
+                <label class="form-label input-group-text">Usuario</label><br />
+                <input asp-for="Usuario" type="text" class="form-control">
+                <span asp-validation-for="Usuario" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3 input-group">
+                <label class="form-label input-group-text">Contraseña</label><br />
+                <input asp-for="Contrasenia" type="password" class="form-control">
+                <span asp-validation-for="Contrasenia" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3 input-group">
+                <label class="form-label input-group-text">Nombre</label><br />
+                <input asp-for="Nombre" type="text" class="form-control">
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3 input-group">
+                <label class="form-label input-group-text">Apellido</label><br />
+                <input asp-for="Apellido" type="text" class="form-control">
+                <span asp-validation-for="Apellido" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3 input-group">
+                <label class="form-label input-group-text">DNI</label><br />
+                <input asp-for="DNI" type="number" class="form-control">
+                <span asp-validation-for="DNI" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3 input-group">
+                <label class="form-label input-group-text">Dirección</label><br />
+                <input asp-for="Direccion" type="text" class="form-control">
+                <span asp-validation-for="Direccion" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3 input-group">
+                <label class="form-label input-group-text">Ciudad</label><br />
+                <input asp-for="Ciudad" type="text" class="form-control">
+                <span asp-validation-for="Ciudad" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3 input-group">
+                <label class="form-label input-group-text">Provincia</label><br />
+                <input asp-for="Provincia" type="text" class="form-control">
+                <span asp-validation-for="Provincia" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3 input-group">
+                <label class="form-label input-group-text">País</label><br />
+                <input asp-for="Pais" type="text" class="form-control">
+                <span asp-validation-for="Pais" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3 input-group">
+                <label class="form-label input-group-text">Teléfono</label><br />
+                <input asp-for="Telefono" type="number" class="form-control">
+                <span asp-validation-for="Telefono" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Registrar</button>
+
+            <a asp-action="Index" asp-controller="Home" class="btn btn-secondary">Volver</a>
+        </form>
+    </div>
+</div>
+
+
+

@@ -1,0 +1,47 @@
+﻿@model List<CuentaDolarModel>
+@{
+    ViewData["Title"] = "CuentasDolar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card text-center" >
+    <div class="card-header">
+        <h5>Cuentas en Dolares</h5>
+    </div>
+    <div class="card-body">
+        <a asp-action="CrearCuentaDolar" asp-controller="Home" class="btn btn-primary" asp-route-id="@ViewBag.Cliente.Id">Crear una nueva cuenta</a>
+        <a asp-action="TransferirDolarADolar" asp-controller="Home" class="btn btn-primary" asp-route-id="@ViewBag.Cliente.Id">Transferir</a>
+        <a asp-action="TransferirDolarAPeso" asp-controller="Home" class="btn btn-primary" asp-route-id="@ViewBag.Cliente.Id">Vender Dolares</a>
+        <a asp-action="TransferirDolarACripto" asp-controller="Home" class="btn btn-primary" asp-route-id="@ViewBag.Cliente.Id">Comprar Bitcoins</a>
+        <a asp-action="Perfil" asp-controller="Home" class="btn btn-secondary" asp-route-cliente="@ViewBag.Cliente">Volver</a>
+        <br /><br /><br />
+        <table class="table d-lg-table table-responsive table-hover" align="center">
+            <thead>
+                <tr>
+                    <th>Numero de cuenta</th>
+                    <th>CBU</th>
+                    <th>Alias CBU</th>
+                    <th>Saldo</th>
+                    <th>Operaciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var item in Model)
+                {
+                    <tr>
+                        <td>@item.NumeroCuenta</td>
+                        <td>@item.CBU</td>
+                        <td>@item.AliasCBU</td>
+                        <td>US$@item.Saldo.ToString()</td>
+                        <td>
+                            <a asp-action="DepositarDolar" asp-controller="Home" class="btn btn-primary" asp-route-CBU="@item.CBU">Depositar</a>
+                            <a asp-action="ExtraerDolar" asp-controller="Home" class="btn btn-primary" asp-route-CBU="@item.CBU">Extraer</a>
+                            <a asp-action="MovimientosDolar" asp-controller="Home" class="btn btn-primary" asp-route-CBU="@item.CBU">Ver movimientos</a>
+                            <a asp-action="BorrarCuentaDolar" asp-controller="Home" class="btn btn-danger" asp-route-CBU="@item.CBU">Borrar Cuenta</a>
+                        </td>
+                    </tr>   
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

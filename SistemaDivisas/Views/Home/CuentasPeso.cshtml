@@ -1,0 +1,47 @@
+﻿@model List<CuentaPesoModel>
+@{
+    ViewData["Title"] = "CuentasPeso";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card text-center" >
+    <div class="card-header">
+        <h5>Cuentas en Pesos</h5>
+    </div>
+    <div class="card-body">
+        <a asp-action="CrearCuentaPeso" asp-controller="Home" class="btn btn-primary" asp-route-id="@ViewBag.Cliente.Id">Crear una nueva cuenta</a>
+        <a asp-action="TransferirPesoAPeso" asp-controller="Home" class="btn btn-primary" asp-route-id="@ViewBag.Cliente.Id">Transferir</a>
+        <a asp-action="TransferirPesoADolar" asp-controller="Home" class="btn btn-primary" asp-route-id="@ViewBag.Cliente.Id">Comprar Dolares</a>
+        <a asp-action="TransferirPesoACripto" asp-controller="Home" class="btn btn-primary" asp-route-id="@ViewBag.Cliente.Id">Comprar Bitcoins</a>
+        <a asp-action="Perfil" asp-controller="Home" class="btn btn-secondary" asp-route-cliente="@ViewBag.Cliente">Volver</a>
+        <br /><br /><br />
+        <table class="table d-lg-table table-responsive table-hover" align="center">
+            <thead>
+                <tr>
+                    <th>Numero de cuenta</th>
+                    <th>CBU</th>
+                    <th>Alias CBU</th>
+                    <th>Saldo</th>
+                    <th>Operaciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var item in Model)
+                {
+                    <tr>
+                        <td>@item.NumeroCuenta</td>
+                        <td>@item.CBU</td>
+                        <td>@item.AliasCBU</td>
+                        <td>AR$@item.Saldo.ToString()</td>
+                        <td>
+                            <a asp-action="DepositarPeso" asp-controller="Home" class="btn btn-primary" asp-route-CBU="@item.CBU">Depositar</a>
+                            <a asp-action="ExtraerPeso" asp-controller="Home" class="btn btn-primary" asp-route-CBU="@item.CBU">Extraer</a>
+                            <a asp-action="MovimientosPeso" asp-controller="Home" class="btn btn-primary" asp-route-CBU="@item.CBU">Ver movimientos</a>
+                            <a asp-action="BorrarCuentaPeso" asp-controller="Home" class="btn btn-danger" asp-route-CBU="@item.CBU">Borrar Cuenta</a>
+                        </td>
+                    </tr>   
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

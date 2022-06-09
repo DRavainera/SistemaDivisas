@@ -1,0 +1,42 @@
+﻿@model List<CuentaCriptoModel>
+@{
+    ViewData["Title"] = "CuentasCripto";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card text-center" >
+    <div class="card-header">
+        <h5>Cuentas en Bitcoin</h5>
+    </div>
+    <div class="card-body">
+        <a asp-action="CrearCuentaCripto" asp-controller="Home" class="btn btn-primary" asp-route-id="@ViewBag.Cliente.Id">Crear una nueva cuenta</a>
+        <a asp-action="TransferirCriptoACripto" asp-controller="Home" class="btn btn-primary" asp-route-id="@ViewBag.Cliente.Id">Transferir</a>
+        <a asp-action="TransferirCriptoADolar" asp-controller="Home" class="btn btn-primary" asp-route-id="@ViewBag.Cliente.Id">Vender a dolares</a>
+        <a asp-action="TransferirCriptoAPeso" asp-controller="Home" class="btn btn-primary" asp-route-id="@ViewBag.Cliente.Id">Vender a pesos</a>
+        <a asp-action="Perfil" asp-controller="Home" class="btn btn-secondary" asp-route-cliente="@ViewBag.Cliente">Volver</a>
+        <br /><br /><br />
+        <table class="table d-lg-table table-responsive table-hover" align="center">
+            <thead>
+                <tr>
+                    <th>UUID</th>
+                    <th>Saldo</th>
+                    <th>Operaciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var item in Model)
+                {
+                    <tr>
+                        <td>@item.UUID</td>
+                        <td>BTC @item.Saldo.ToString()</td>
+                        <td>
+                            <a asp-action="MovimientosCripto" asp-controller="Home" class="btn btn-primary" asp-route-UUID="@item.UUID">Ver movimientos</a>
+                            <a asp-action="BorrarCuentaCripto" asp-controller="Home" class="btn btn-danger" asp-route-UUID="@item.UUID">Borrar Cuenta</a>
+                        </td>
+                    </tr>   
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+

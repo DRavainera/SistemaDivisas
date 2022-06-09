@@ -1,0 +1,51 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+  font-family:Cambria, Cochin, Georgia, Times, Times New Roman, serif;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+a {
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+footer, header {
+    background-color: darkgreen;
+    text-decoration-color: White;
+}
+
+#footer {
+    color: white;
+}
+
+label {
+    font-weight: bold;
+}
+
+.navbar-brand { 
+    font-family: 'Comic Sans MS';
+    font-size: 30px;
+}
+
+body {
+    background-image: url(../imagen/banco.jpg);
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

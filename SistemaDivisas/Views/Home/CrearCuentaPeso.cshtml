@@ -1,0 +1,28 @@
+﻿@model CuentaPesoModel
+@{
+    ViewData["Title"] = "CrearCuentaPeso";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card text-center">
+    <div class="card-header">
+        <h5 class="card-header">Registro de una nueva cuenta en pesos</h5>
+    </div>
+    <div class="card-body">
+        <form asp-action="CrearCuentaPesoAction" asp-controller="Home" method="post">
+
+            <input asp-for="ClienteId" name="clienteId" type="hidden" value="@ViewBag.clienteId"  class="form-control">  
+
+            <div class="mb-3 input-group">
+                <label class="form-label input-group-text">Ingrese su Alias CBU: </label><br />
+                <input asp-for="AliasCBU" type="text" class="form-control" required>
+                <span asp-validation-for="AliasCBU" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Registrar</button>
+
+            <a asp-action="CuentasPeso" asp-controller="Home" class="btn btn-secondary">Volver</a>
+        </form>
+    </div>
+</div>
+

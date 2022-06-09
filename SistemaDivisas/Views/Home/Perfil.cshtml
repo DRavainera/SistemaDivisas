@@ -1,0 +1,22 @@
+﻿@model ClienteModel
+@{
+    ViewData["Title"] = "Perfil";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="card text-center">
+    <div class="card-header">
+        <h5>Hola, @Html.DisplayTextFor(m => m.Nombre)</h5>
+    </div>
+    <div class="card-body">
+        <a asp-action="CuentasPeso" asp-controller="Home" class="btn btn-primary" asp-route-id="@Convert.ToInt32(Html.DisplayTextFor(m => m.Id))">Ver mis cuentas en Pesos</a>
+        <br /><br />
+        <a asp-action="CuentasDolar" asp-controller="Home" class="btn btn-primary" asp-route-id="@Convert.ToInt32(Html.DisplayTextFor(m => m.Id))">Ver mis cuentas en Dolar</a>
+        <br /><br />
+        <a asp-action="CuentasCripto" asp-controller="Home" class="btn btn-primary" asp-route-id="@Convert.ToInt32(Html.DisplayTextFor(m => m.Id))">Ver mis cuentas en Bitcoin</a>
+        <br /><br />
+        <a asp-action="Logout" asp-controller="Home" class="btn btn-danger" asp-route-id="@Convert.ToInt32(Html.DisplayTextFor(m => m.Id))">Cerrar sesion</a>
+    </div>
+</div>
+
