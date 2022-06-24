@@ -1012,7 +1012,7 @@ namespace SistemaDivisas.DAO
                     break;
 
                 case "dolar":
-                    switch (tipoOrigen)
+                    switch (tipoDestino)
                     {
                         case "peso":
                             resultado = saldo * valorPesoDolar;
@@ -1025,7 +1025,7 @@ namespace SistemaDivisas.DAO
                     break;
 
                 case "cripto":
-                    switch (tipoOrigen)
+                    switch (tipoDestino)
                     {
                         case "dolar":
                             resultado = saldo / valorCriptoDolar;
